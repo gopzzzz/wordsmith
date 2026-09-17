@@ -4,9 +4,9 @@
 
 <div class="content-wrapper">
 
-    <!-- ========================================================= -->
-    <!-- PAGE HEADER -->
-    <!-- ========================================================= -->
+    <!-- ============================= -->
+    <!-- CONTENT HEADER -->
+    <!-- ============================= -->
 
     <section class="content-header">
 
@@ -16,10 +16,7 @@
 
                 <div class="col-sm-6">
 
-                    <h1>
-                        <i class="fas fa-edit"></i>
-                        Page Edit
-                    </h1>
+                    <h1>Page Edit</h1>
 
                 </div>
 
@@ -28,9 +25,7 @@
                     <ol class="breadcrumb float-sm-right">
 
                         <li class="breadcrumb-item">
-                            <a href="#">
-                                Home
-                            </a>
+                            <a href="#">Home</a>
                         </li>
 
                         <li class="breadcrumb-item active">
@@ -48,9 +43,9 @@
     </section>
 
 
-    <!-- ========================================================= -->
+    <!-- ============================= -->
     <!-- MAIN CONTENT -->
-    <!-- ========================================================= -->
+    <!-- ============================= -->
 
     <section class="content">
 
@@ -62,33 +57,22 @@
 
                     <div class="card">
 
-
-                        <!-- ================================================= -->
                         <!-- CARD HEADER -->
-                        <!-- ================================================= -->
 
                         <div class="card-header">
 
                             <h3 class="card-title">
-
-                                <i class="fas fa-edit"></i>
-
                                 Edit Homepage
-
                             </h3>
 
                         </div>
 
 
-                        <!-- ================================================= -->
                         <!-- SUCCESS MESSAGE -->
-                        <!-- ================================================= -->
 
                         @if(session('success'))
 
                             <div class="alert alert-success alert-dismissible fade show m-3">
-
-                                <i class="fas fa-check-circle"></i>
 
                                 {{ session('success') }}
 
@@ -107,15 +91,11 @@
                         @endif
 
 
-                        <!-- ================================================= -->
                         <!-- ERROR MESSAGE -->
-                        <!-- ================================================= -->
 
                         @if(session('error'))
 
                             <div class="alert alert-danger alert-dismissible fade show m-3">
-
-                                <i class="fas fa-exclamation-circle"></i>
 
                                 {{ session('error') }}
 
@@ -134,19 +114,13 @@
                         @endif
 
 
-                        <!-- ================================================= -->
                         <!-- VALIDATION ERRORS -->
-                        <!-- ================================================= -->
 
                         @if($errors->any())
 
                             <div class="alert alert-danger m-3">
 
-                                <strong>
-                                    Please fix the following errors:
-                                </strong>
-
-                                <ul class="mb-0 mt-2">
+                                <ul class="mb-0">
 
                                     @foreach($errors->all() as $error)
 
@@ -163,9 +137,9 @@
                         @endif
 
 
-                        <!-- ================================================= -->
+                        <!-- ============================= -->
                         <!-- FORM -->
-                        <!-- ================================================= -->
+                        <!-- ============================= -->
 
                         <form
                             action="{{ route('page_edit.save') }}"
@@ -179,24 +153,7 @@
                             <div class="card-body">
 
 
-                                <!-- ================================================= -->
-                                <!-- ABOUT SECTION -->
-                                <!-- ================================================= -->
-
-                                <div class="mb-4">
-
-                                    <h4 class="border-bottom pb-2">
-
-                                        <i class="fas fa-info-circle"></i>
-
-                                        About Section
-
-                                    </h4>
-
-                                </div>
-
-
-                                <!-- About Title -->
+                                <!-- ABOUT TITLE -->
 
                                 <div class="form-group">
 
@@ -215,7 +172,7 @@
                                 </div>
 
 
-                                <!-- About Description -->
+                                <!-- ABOUT DESCRIPTION -->
 
                                 <div class="form-group">
 
@@ -226,14 +183,14 @@
                                     <textarea
                                         name="aboutdescription"
                                         class="form-control"
-                                        rows="5"
+                                        rows="4"
                                         placeholder="Enter about description"
                                     >{{ old('aboutdescription', $homepage->aboutdescription ?? '') }}</textarea>
 
                                 </div>
 
 
-                                <!-- About Image -->
+                                <!-- ABOUT IMAGE -->
 
                                 <div class="form-group">
 
@@ -241,75 +198,41 @@
                                         About Image
                                     </label>
 
-
-                                    @if(!empty($homepage->about_image))
-
-                                        <div class="mb-3">
-
-                                            <label class="d-block">
-                                                Current Image
-                                            </label>
-
-                                            <img
-                                                src="{{ asset($homepage->about_image) }}"
-                                                alt="About Image"
-                                                class="img-thumbnail"
-                                                style="
-                                                    width: 250px;
-                                                    height: 180px;
-                                                    object-fit: cover;
-                                                "
-                                            >
-
-                                        </div>
-
-                                    @endif
-
-
                                     <input
                                         type="file"
                                         name="about_image"
-                                        class="form-control"
+                                        class="form-control-file"
                                         accept=".jpg,.jpeg,.png,.webp"
                                     >
 
-                                    <small class="text-muted">
+                                </div>
 
-                                        Leave empty to keep the current image.
+
+                                <!-- CURRENT IMAGE -->
+
+                                @if(!empty($homepage->about_image))
+
+                                    <div class="form-group">
+
+                                        <label>
+                                            Current Image
+                                        </label>
 
                                         <br>
 
-                                        Allowed:
-                                        JPG, JPEG, PNG, WEBP.
+                                        <img
+                                            src="{{ asset($homepage->about_image) }}"
+                                            alt="About Image"
+                                            style="max-width:200px; height:auto;"
+                                            class="img-thumbnail"
+                                        >
 
-                                        Maximum size: 2 MB.
+                                    </div>
 
-                                    </small>
-
-                                </div>
-
-
-                                <hr class="my-4">
-
-
-                                <!-- ================================================= -->
-                                <!-- QUOTES SECTION -->
-                                <!-- ================================================= -->
-
-                                <div class="mb-4">
-
-                                    <h4 class="border-bottom pb-2">
-
-                                        <i class="fas fa-quote-left"></i>
-
-                                        Quotes
-
-                                    </h4>
-
-                                </div>
+                                @endif
 
 
-                                <!-- First Quote -->
+                                <!-- FIRST QUOTE -->
 
                                 <div class="form-group">
 
@@ -317,17 +240,18 @@
                                         First Quote
                                     </label>
 
-                                    <textarea
+                                    <input
+                                        type="text"
                                         name="firstquote"
                                         class="form-control"
-                                        rows="3"
+                                        value="{{ old('firstquote', $homepage->firstquote ?? '') }}"
                                         placeholder="Enter first quote"
-                                    >{{ old('firstquote', $homepage->firstquote ?? '') }}</textarea>
+                                    >
 
                                 </div>
 
 
-                                <!-- Second Quote -->
+                                <!-- SECOND QUOTE -->
 
                                 <div class="form-group">
 
@@ -335,17 +259,18 @@
                                         Second Quote
                                     </label>
 
-                                    <textarea
+                                    <input
+                                        type="text"
                                         name="secondquote"
                                         class="form-control"
-                                        rows="3"
+                                        value="{{ old('secondquote', $homepage->secondquote ?? '') }}"
                                         placeholder="Enter second quote"
-                                    >{{ old('secondquote', $homepage->secondquote ?? '') }}</textarea>
+                                    >
 
                                 </div>
 
 
-                                <!-- Third Quote -->
+                                <!-- THIRD QUOTE -->
 
                                 <div class="form-group">
 
@@ -353,37 +278,18 @@
                                         Third Quote
                                     </label>
 
-                                    <textarea
+                                    <input
+                                        type="text"
                                         name="thirdquote"
                                         class="form-control"
-                                        rows="3"
+                                        value="{{ old('thirdquote', $homepage->thirdquote ?? '') }}"
                                         placeholder="Enter third quote"
-                                    >{{ old('thirdquote', $homepage->thirdquote ?? '') }}</textarea>
+                                    >
 
                                 </div>
 
 
-                                <hr class="my-4">
-
-
-                                <!-- ================================================= -->
-                                <!-- VISION & MISSION -->
-                                <!-- ================================================= -->
-
-                                <div class="mb-4">
-
-                                    <h4 class="border-bottom pb-2">
-
-                                        <i class="fas fa-bullseye"></i>
-
-                                        Vision & Mission
-
-                                    </h4>
-
-                                </div>
-
-
-                                <!-- Vision -->
+                                <!-- VISION -->
 
                                 <div class="form-group">
 
@@ -401,7 +307,7 @@
                                 </div>
 
 
-                                <!-- Mission -->
+                                <!-- MISSION -->
 
                                 <div class="form-group">
 
@@ -419,27 +325,7 @@
                                 </div>
 
 
-                                <hr class="my-4">
-
-
-                                <!-- ================================================= -->
-                                <!-- FOUNDER SECTION -->
-                                <!-- ================================================= -->
-
-                                <div class="mb-4">
-
-                                    <h4 class="border-bottom pb-2">
-
-                                        <i class="fas fa-user"></i>
-
-                                        Founder
-
-                                    </h4>
-
-                                </div>
-
-
-                                <!-- Founder Quote -->
+                                <!-- FOUNDER QUOTE -->
 
                                 <div class="form-group">
 
@@ -460,49 +346,20 @@
                             </div>
 
 
-                            <!-- ================================================= -->
-                            <!-- CARD FOOTER -->
-                            <!-- ================================================= -->
+                            <!-- ============================= -->
+                            <!-- FOOTER -->
+                            <!-- ============================= -->
 
                             <div class="card-footer">
 
-                                @if($homepage)
-
-                                    <button
-                                        type="submit"
-                                        class="btn btn-primary"
-                                    >
-
-                                        <i class="fas fa-save"></i>
-
-                                        Update Page
-
-                                    </button>
-
-                                @else
-
-                                    <button
-                                        type="submit"
-                                        class="btn btn-success"
-                                    >
-
-                                        <i class="fas fa-plus"></i>
-
-                                        Save Page
-
-                                    </button>
-
-                                @endif
-
-
                                 <button
-                                    type="reset"
-                                    class="btn btn-secondary"
+                                    type="submit"
+                                    class="btn btn-primary"
                                 >
 
-                                    <i class="fas fa-undo"></i>
+                                    <i class="fas fa-save"></i>
 
-                                    Reset
+                                    Save Page
 
                                 </button>
 
@@ -510,7 +367,6 @@
 
 
                         </form>
-
 
                     </div>
 

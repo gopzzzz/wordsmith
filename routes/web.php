@@ -6,6 +6,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ServiceController;
+
+
+
+
+
 
  use App\Http\Controllers\TestimonialController;
  
@@ -61,6 +69,57 @@ Route::get('/page-edit', [PageEditController::class, 'index'])
 Route::post('/page-edit', [PageEditController::class, 'save'])
     ->name('page_edit.save');
  
+
+
+
+
+
+Route::get('/banners', [BannerController::class, 'index'])
+    ->name('banners.index');
+
+Route::post('/banners/store', [BannerController::class, 'store'])
+    ->name('banners.store');
+
+Route::post('/banners/update/{id}', [BannerController::class, 'update'])
+    ->name('banners.update');
+
+Route::get('/banners/delete/{id}', [BannerController::class, 'destroy'])
+    ->name('banners.delete');
+
+
+
+
+
+
+Route::get('/portfolio', [PortfolioController::class, 'index'])
+    ->name('portfolio.index');
+
+Route::post('/portfolio/store', [PortfolioController::class, 'store'])
+    ->name('portfolio.store');
+
+Route::post('/portfolio/update/{id}', [PortfolioController::class, 'update'])
+    ->name('portfolio.update');
+
+Route::get('/portfolio/delete/{id}', [PortfolioController::class, 'destroy'])
+    ->name('portfolio.delete');
+
+
+
+
+Route::get('/services', [ServiceController::class, 'index'])
+    ->name('services.index');
+
+Route::post('/services/store', [ServiceController::class, 'store'])
+    ->name('services.store');
+
+Route::post('/services/update/{id}', [ServiceController::class, 'update'])
+    ->name('services.update');
+
+Route::get('/services/delete/{id}', [ServiceController::class, 'destroy'])
+    ->name('services.delete');
+
+
+
 
 
 require __DIR__.'/auth.php';
