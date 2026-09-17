@@ -210,6 +210,41 @@
             </ul>
           </li>
 
+
+
+
+
+
+
+          <li class="nav-item">
+    <a href="{{ route('banners.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-images"></i>
+        <p>Banners</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('portfolio.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-briefcase"></i>
+        <p>Portfolio</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('services.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-cogs"></i>
+        <p>Services</p>
+    </a>
+</li>
+
+
+
+
+
+
+
           <li class="nav-item">
     <a href="{{ route('logout') }}" class="nav-link">
         <i class="nav-icon fas fa-sign-out-alt"></i>
