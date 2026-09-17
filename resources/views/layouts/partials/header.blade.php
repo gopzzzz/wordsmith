@@ -216,8 +216,24 @@
         <p>Logout</p>
     </a>
 </li>
-         
-          
+
+<li class="nav-item">
+    <a href="{{ route('testimonials.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-comments"></i>
+        <p>Testimonials</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('page_edit') }}" class="nav-link">
+        <i class="nav-icon fas fa-edit"></i>
+        <p>Page Edit</p>
+    </a>
+</li>
+
+
+   
           
         </ul>
       </nav>
