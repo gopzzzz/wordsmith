@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
-
+use App\Http\Controllers\BlogController;
 
 
 
@@ -119,7 +119,14 @@ Route::get('/services/delete/{id}', [ServiceController::class, 'destroy'])
     ->name('services.delete');
 
 
+Route::get('/blogs', [BlogController::class, 'index'])
+    ->name('blogs.index');
 
+Route::post('/blogs', [BlogController::class, 'store'])
+    ->name('blogs.store');
+
+Route::put('/blogs/{id}', [BlogController::class, 'update'])
+    ->name('blogs.update');
 
 
 require __DIR__.'/auth.php';
