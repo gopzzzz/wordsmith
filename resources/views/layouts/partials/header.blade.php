@@ -137,7 +137,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -173,7 +173,7 @@
             
           </li>
          
-         
+         <!--
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -210,7 +210,7 @@
             </ul>
           </li>
 
-
+-->
 
 
 
@@ -225,9 +225,9 @@
 
 
 <li class="nav-item">
-    <a href="{{ route('portfolio.index') }}" class="nav-link">
-        <i class="nav-icon fas fa-briefcase"></i>
-        <p>Portfolio</p>
+    <a href="{{ route('page_edit') }}" class="nav-link">
+        <i class="nav-icon fas fa-edit"></i>
+        <p>Page Edit</p>
     </a>
 </li>
 
@@ -240,17 +240,13 @@
 </li>
 
 
-
-
-
-
-
-          <li class="nav-item">
-    <a href="{{ route('logout') }}" class="nav-link">
-        <i class="nav-icon fas fa-sign-out-alt"></i>
-        <p>Logout</p>
+<li class="nav-item">
+    <a href="{{ route('portfolio.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-briefcase"></i>
+        <p>Portfolio</p>
     </a>
 </li>
+
 
 <li class="nav-item">
     <a href="{{ route('testimonials.index') }}" class="nav-link">
@@ -259,13 +255,21 @@
     </a>
 </li>
 
-
 <li class="nav-item">
-    <a href="{{ route('page_edit') }}" class="nav-link">
-        <i class="nav-icon fas fa-edit"></i>
-        <p>Page Edit</p>
+    <a href="{{ route('blogs.index') }}" class="nav-link">
+        <i class="nav-icon fas fa-blog"></i>
+        <p>Blogs</p>
     </a>
 </li>
+
+          <li class="nav-item">
+    <a href="{{ route('logout') }}" class="nav-link">
+        <i class="nav-icon fas fa-sign-out-alt"></i>
+        <p>Logout</p>
+    </a>
+</li>
+
+
 
 
    
