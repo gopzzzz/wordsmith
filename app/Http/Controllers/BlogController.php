@@ -35,9 +35,11 @@ class BlogController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
 
-            'description' => 'required|string',
+            // Long-form content - no 255 character restriction
+            'description' => 'nullable|string',
 
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:10240',
+            // Image is optional - maximum 10 MB
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
         ]);
 
 
@@ -54,6 +56,7 @@ class BlogController extends Controller
             $image = $request->file('image');
 
             $uploadPath = public_path('uploads/blogs');
+
 
             // Create folder if it doesn't exist
             if (!File::exists($uploadPath)) {
@@ -77,7 +80,7 @@ class BlogController extends Controller
             );
 
 
-            // Database path
+            // Save image path
             $imagePath = 'uploads/blogs/' . $imageName;
         }
 
@@ -154,9 +157,10 @@ class BlogController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
 
-            'description' => 'required|string',
+            // Long-form content - no 255 character restriction
+            'description' => 'nullable|string',
 
-            // Image is optional while editing
+            // Optional image - maximum 10 MB
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
         ]);
 
@@ -205,7 +209,7 @@ class BlogController extends Controller
             );
 
 
-            // New database path
+            // Save new image path
             $imagePath = 'uploads/blogs/' . $imageName;
 
 
