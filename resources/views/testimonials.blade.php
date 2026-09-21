@@ -544,7 +544,7 @@
                                                                         Allowed:
                                                                         JPG, JPEG, PNG, WEBP.
 
-                                                                        Maximum 2 MB.
+                                                                        Maximum 10 MB.
 
                                                                     </small>
 
@@ -973,7 +973,7 @@
                             Allowed:
                             JPG, JPEG, PNG, WEBP.
 
-                            Maximum 2 MB.
+                            Maximum 10 MB.
 
                         </small>
 

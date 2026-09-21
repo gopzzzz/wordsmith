@@ -7,22 +7,31 @@
     <!-- Page Header -->
     <section class="content-header">
         <div class="container-fluid">
+
             <div class="row mb-2">
+
                 <div class="col-sm-6">
                     <h1>Blogs</h1>
                 </div>
 
                 <div class="col-sm-6">
+
                     <ol class="breadcrumb float-sm-right">
+
                         <li class="breadcrumb-item">
                             <a href="{{ url('/') }}">Home</a>
                         </li>
+
                         <li class="breadcrumb-item active">
                             Blogs
                         </li>
+
                     </ol>
+
                 </div>
+
             </div>
+
         </div>
     </section>
 
@@ -32,53 +41,80 @@
 
         <div class="container-fluid">
 
+
             <!-- Success Message -->
             @if(session('success'))
+
                 <div class="alert alert-success alert-dismissible fade show">
+
                     <button type="button"
                             class="close"
                             data-dismiss="alert">
+
                         &times;
+
                     </button>
 
                     <i class="fas fa-check-circle"></i>
+
                     {{ session('success') }}
+
                 </div>
+
             @endif
 
 
             <!-- Error Messages -->
             @if($errors->any())
+
                 <div class="alert alert-danger alert-dismissible fade show">
 
                     <button type="button"
                             class="close"
                             data-dismiss="alert">
+
                         &times;
+
                     </button>
 
                     <strong>
+
                         <i class="fas fa-exclamation-triangle"></i>
+
                         Please fix the following errors:
+
                     </strong>
 
+
                     <ul class="mb-0 mt-2">
+
                         @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
+
+                            <li>
+                                {{ $error }}
+                            </li>
+
                         @endforeach
+
                     </ul>
 
                 </div>
+
             @endif
 
 
-            <!-- Blog List Card -->
+
+            <!-- Blog List -->
             <div class="card">
 
+
+                <!-- Card Header -->
                 <div class="card-header">
+
                     <h3 class="card-title">
                         Blog List
                     </h3>
+
 
                     <div class="card-tools">
 
@@ -88,14 +124,18 @@
                                 data-target="#addBlogModal">
 
                             <i class="fas fa-plus"></i>
+
                             Add Blog
 
                         </button>
 
                     </div>
+
                 </div>
 
 
+
+                <!-- Card Body -->
                 <div class="card-body">
 
                     <div class="table-responsive">
@@ -103,42 +143,45 @@
                         <table class="table table-bordered table-hover">
 
                             <thead>
+
                                 <tr>
 
                                     <th style="width: 5%;">
                                         #
                                     </th>
 
-                                    <th style="width: 12%;">
+                                    <th style="width: 20%;">
                                         Image
                                     </th>
 
-                                    <th style="width: 18%;">
+                                    <th>
                                         Name
                                     </th>
 
-                                    <th>
-                                        Description
-                                    </th>
-
-                                    <th style="width: 12%;">
+                                    <th style="width: 15%;">
                                         Action
                                     </th>
 
                                 </tr>
+
                             </thead>
 
 
                             <tbody>
 
+
                                 @forelse($blogs as $key => $blog)
 
                                     <tr>
 
-                                        <!-- ID -->
+
+                                        <!-- Number -->
                                         <td>
+
                                             {{ $key + 1 }}
+
                                         </td>
+
 
 
                                         <!-- Image -->
@@ -150,9 +193,12 @@
                                                      alt="{{ $blog->name }}"
                                                      width="90"
                                                      height="60"
-                                                     style="object-fit: cover;
-                                                            border-radius: 5px;
-                                                            cursor: pointer;"
+                                                     style="
+                                                        object-fit: cover;
+                                                        border-radius: 5px;
+                                                        cursor: pointer;
+                                                        border: 1px solid #ddd;
+                                                     "
                                                      onclick="showImage('{{ asset($blog->image) }}')">
 
                                             @else
@@ -166,16 +212,14 @@
                                         </td>
 
 
+
                                         <!-- Name -->
                                         <td>
+
                                             {{ $blog->name }}
+
                                         </td>
 
-
-                                        <!-- Description -->
-                                        <td>
-                                            {{ $blog->description }}
-                                        </td>
 
 
                                         <!-- Action -->
@@ -187,23 +231,25 @@
                                                     data-target="#editBlogModal{{ $blog->id }}">
 
                                                 <i class="fas fa-edit"></i>
+
                                                 Edit
 
                                             </button>
 
                                         </td>
 
-                                    </tr>
 
+                                    </tr>
 
                                 @empty
 
                                     <tr>
 
-                                        <td colspan="5"
+                                        <td colspan="4"
                                             class="text-center">
 
                                             <i class="fas fa-info-circle"></i>
+
                                             No blogs found.
 
                                         </td>
@@ -211,6 +257,7 @@
                                     </tr>
 
                                 @endforelse
+
 
                             </tbody>
 
@@ -221,7 +268,8 @@
                 </div>
 
 
-                <!-- Total Blogs -->
+
+                <!-- Footer -->
                 <div class="card-footer">
 
                     <strong>
@@ -266,14 +314,15 @@
                     id="addBlogModalLabel">
 
                     <i class="fas fa-plus-circle"></i>
+
                     Add Blog
 
                 </h5>
 
+
                 <button type="button"
                         class="close"
-                        data-dismiss="modal"
-                        aria-label="Close">
+                        data-dismiss="modal">
 
                     <span aria-hidden="true">
                         &times;
@@ -282,6 +331,7 @@
                 </button>
 
             </div>
+
 
 
             <!-- Form -->
@@ -295,13 +345,19 @@
                 <div class="modal-body">
 
 
-                    <!-- Name -->
+                    <!-- Blog Name -->
                     <div class="form-group">
 
                         <label>
+
                             Name
-                            <span class="text-danger">*</span>
+
+                            <span class="text-danger">
+                                *
+                            </span>
+
                         </label>
+
 
                         <input type="text"
                                name="name"
@@ -313,45 +369,65 @@
                     </div>
 
 
+
                     <!-- Description -->
                     <div class="form-group">
 
                         <label>
                             Description
-                            <span class="text-danger">*</span>
                         </label>
+
 
                         <textarea name="description"
                                   class="form-control"
-                                  rows="5"
-                                  placeholder="Enter blog description"
-                                  required>{{ old('description') }}</textarea>
+                                  rows="10"
+                                  placeholder="Enter blog content">{{ old('description') }}</textarea>
+
+
+                        <small class="form-text text-muted">
+
+                            Long-form content is allowed.
+
+                        </small>
 
                     </div>
+
 
 
                     <!-- Image -->
                     <div class="form-group">
 
                         <label>
+
                             Image
-                            <span class="text-danger">*</span>
+
+                            <span class="text-muted font-weight-normal ml-1">
+
+                                (Optional)
+
+                            </span>
+
                         </label>
+
 
                         <input type="file"
                                name="image"
                                id="addBlogImage"
                                class="form-control"
                                accept="image/jpeg,image/jpg,image/png,image/webp"
-                               onchange="previewAddImage(event)"
-                               required>
+                               onchange="previewAddImage(event)">
+
 
                         <small class="form-text text-muted">
+
                             Allowed: JPG, JPEG, PNG, WEBP.
+
                             Maximum size: 10 MB.
+
                         </small>
 
                     </div>
+
 
 
                     <!-- Add Image Preview -->
@@ -365,15 +441,18 @@
 
                         <br>
 
+
                         <img id="addImagePreview"
                              src=""
                              alt="Image Preview"
-                             style="max-width:250px;
-                                    max-height:180px;
-                                    object-fit:cover;
-                                    border-radius:5px;
-                                    border:1px solid #ddd;
-                                    padding:3px;">
+                             style="
+                                max-width:250px;
+                                max-height:180px;
+                                object-fit:cover;
+                                border-radius:5px;
+                                border:1px solid #ddd;
+                                padding:3px;
+                             ">
 
                     </div>
 
@@ -381,27 +460,34 @@
                 </div>
 
 
+
                 <!-- Modal Footer -->
                 <div class="modal-footer">
+
 
                     <button type="button"
                             class="btn btn-secondary"
                             data-dismiss="modal">
 
                         <i class="fas fa-times"></i>
+
                         Close
 
                     </button>
+
 
                     <button type="submit"
                             class="btn btn-primary">
 
                         <i class="fas fa-save"></i>
+
                         Save Blog
 
                     </button>
 
+
                 </div>
+
 
             </form>
 
@@ -439,14 +525,15 @@
                     id="editBlogModalLabel{{ $blog->id }}">
 
                     <i class="fas fa-edit"></i>
+
                     Edit Blog
 
                 </h5>
 
+
                 <button type="button"
                         class="close"
-                        data-dismiss="modal"
-                        aria-label="Close">
+                        data-dismiss="modal">
 
                     <span aria-hidden="true">
                         &times;
@@ -455,6 +542,7 @@
                 </button>
 
             </div>
+
 
 
             <!-- Edit Form -->
@@ -470,13 +558,19 @@
                 <div class="modal-body">
 
 
-                    <!-- Name -->
+                    <!-- Blog Name -->
                     <div class="form-group">
 
                         <label>
+
                             Name
-                            <span class="text-danger">*</span>
+
+                            <span class="text-danger">
+                                *
+                            </span>
+
                         </label>
+
 
                         <input type="text"
                                name="name"
@@ -488,21 +582,29 @@
                     </div>
 
 
+
                     <!-- Description -->
                     <div class="form-group">
 
                         <label>
                             Description
-                            <span class="text-danger">*</span>
                         </label>
+
 
                         <textarea name="description"
                                   class="form-control"
-                                  rows="5"
-                                  placeholder="Enter blog description"
-                                  required>{{ $blog->description }}</textarea>
+                                  rows="10"
+                                  placeholder="Enter blog content">{{ $blog->description }}</textarea>
+
+
+                        <small class="form-text text-muted">
+
+                            Long-form content is allowed.
+
+                        </small>
 
                     </div>
+
 
 
                     <!-- Current Image -->
@@ -514,23 +616,28 @@
 
                         <br>
 
+
                         @if($blog->image)
 
                             <img src="{{ asset($blog->image) }}"
                                  alt="{{ $blog->name }}"
                                  width="180"
                                  height="120"
-                                 style="object-fit:cover;
-                                        border-radius:5px;
-                                        border:1px solid #ddd;
-                                        padding:3px;
-                                        cursor:pointer;"
+                                 style="
+                                    object-fit:cover;
+                                    border-radius:5px;
+                                    border:1px solid #ddd;
+                                    padding:3px;
+                                    cursor:pointer;
+                                 "
                                  onclick="showImage('{{ asset($blog->image) }}')">
 
                         @else
 
                             <p class="text-muted">
+
                                 No image available
+
                             </p>
 
                         @endif
@@ -538,12 +645,22 @@
                     </div>
 
 
-                    <!-- New Image -->
+
+                    <!-- Change Image -->
                     <div class="form-group">
 
                         <label>
+
                             Change Image
+
+                            <span class="text-muted font-weight-normal ml-1">
+
+                                (Optional)
+
+                            </span>
+
                         </label>
+
 
                         <input type="file"
                                name="image"
@@ -552,13 +669,19 @@
                                accept="image/jpeg,image/jpg,image/png,image/webp"
                                onchange="previewEditImage(event, {{ $blog->id }})">
 
+
                         <small class="form-text text-muted">
+
                             Leave empty to keep the current image.
+
                             Allowed: JPG, JPEG, PNG, WEBP.
+
                             Maximum size: 10 MB.
+
                         </small>
 
                     </div>
+
 
 
                     <!-- New Image Preview -->
@@ -572,15 +695,18 @@
 
                         <br>
 
+
                         <img id="editImagePreview{{ $blog->id }}"
                              src=""
                              alt="New Image Preview"
-                             style="max-width:250px;
-                                    max-height:180px;
-                                    object-fit:cover;
-                                    border-radius:5px;
-                                    border:1px solid #ddd;
-                                    padding:3px;">
+                             style="
+                                max-width:250px;
+                                max-height:180px;
+                                object-fit:cover;
+                                border-radius:5px;
+                                border:1px solid #ddd;
+                                padding:3px;
+                             ">
 
                     </div>
 
@@ -588,27 +714,34 @@
                 </div>
 
 
+
                 <!-- Modal Footer -->
                 <div class="modal-footer">
+
 
                     <button type="button"
                             class="btn btn-secondary"
                             data-dismiss="modal">
 
                         <i class="fas fa-times"></i>
+
                         Close
 
                     </button>
+
 
                     <button type="submit"
                             class="btn btn-primary">
 
                         <i class="fas fa-save"></i>
+
                         Update Blog
 
                     </button>
 
+
                 </div>
+
 
             </form>
 
@@ -638,11 +771,15 @@
         <div class="modal-content">
 
 
+            <!-- Header -->
             <div class="modal-header">
 
                 <h5 class="modal-title">
+
                     Blog Image
+
                 </h5>
+
 
                 <button type="button"
                         class="close"
@@ -657,14 +794,18 @@
             </div>
 
 
+
+            <!-- Image -->
             <div class="modal-body text-center">
 
                 <img id="largeBlogImage"
                      src=""
                      alt="Blog Image"
-                     style="max-width:100%;
-                            max-height:600px;
-                            object-fit:contain;">
+                     style="
+                        max-width:100%;
+                        max-height:600px;
+                        object-fit:contain;
+                     ">
 
             </div>
 
@@ -683,175 +824,249 @@
 
 <script>
 
-    /*
-    |--------------------------------------------------------------------------
-    | ADD IMAGE PREVIEW
-    |--------------------------------------------------------------------------
-    */
 
-    function previewAddImage(event)
-    {
-        const file = event.target.files[0];
+/*
+|--------------------------------------------------------------------------
+| ADD IMAGE PREVIEW
+|--------------------------------------------------------------------------
+*/
 
-        if (!file) {
+function previewAddImage(event)
+{
 
-            document.getElementById('addImagePreviewContainer')
-                .style.display = 'none';
-
-            return;
-        }
+    const file = event.target.files[0];
 
 
-        const allowedTypes = [
-            'image/jpeg',
-            'image/jpg',
-            'image/png',
-            'image/webp'
-        ];
+    const container =
+        document.getElementById(
+            'addImagePreviewContainer'
+        );
 
 
-        if (!allowedTypes.includes(file.type)) {
+    if (!file) {
 
-            alert('Please select a JPG, JPEG, PNG or WEBP image.');
+        container.style.display = 'none';
 
-            event.target.value = '';
-
-            document.getElementById('addImagePreviewContainer')
-                .style.display = 'none';
-
-            return;
-        }
-
-
-        /*
-        | Maximum 10 MB
-        */
-
-        if (file.size > 10 * 1024 * 1024) {
-
-            alert('Image size must be 10 MB or less.');
-
-            event.target.value = '';
-
-            document.getElementById('addImagePreviewContainer')
-                .style.display = 'none';
-
-            return;
-        }
-
-
-        const reader = new FileReader();
-
-
-        reader.onload = function(e)
-        {
-            document.getElementById('addImagePreview').src =
-                e.target.result;
-
-            document.getElementById('addImagePreviewContainer')
-                .style.display = 'block';
-        };
-
-
-        reader.readAsDataURL(file);
+        return;
     }
-
 
 
     /*
     |--------------------------------------------------------------------------
-    | EDIT IMAGE PREVIEW
+    | Allowed File Types
     |--------------------------------------------------------------------------
     */
 
-    function previewEditImage(event, blogId)
-    {
-        const file = event.target.files[0];
+    const allowedTypes = [
 
-        const container =
-            document.getElementById(
-                'editImagePreviewContainer' + blogId
-            );
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp'
 
-        const preview =
-            document.getElementById(
-                'editImagePreview' + blogId
-            );
+    ];
 
 
-        if (!file) {
+    if (!allowedTypes.includes(file.type)) {
 
-            container.style.display = 'none';
-
-            return;
-        }
-
-
-        const allowedTypes = [
-            'image/jpeg',
-            'image/jpg',
-            'image/png',
-            'image/webp'
-        ];
+        alert(
+            'Please select a JPG, JPEG, PNG or WEBP image.'
+        );
 
 
-        if (!allowedTypes.includes(file.type)) {
-
-            alert('Please select a JPG, JPEG, PNG or WEBP image.');
-
-            event.target.value = '';
-
-            container.style.display = 'none';
-
-            return;
-        }
+        event.target.value = '';
 
 
-        /*
-        | Maximum 10 MB
-        */
-
-        if (file.size > 10 * 1024 * 1024) {
-
-            alert('Image size must be 10 MB or less.');
-
-            event.target.value = '';
-
-            container.style.display = 'none';
-
-            return;
-        }
+        container.style.display = 'none';
 
 
-        const reader = new FileReader();
-
-
-        reader.onload = function(e)
-        {
-            preview.src = e.target.result;
-
-            container.style.display = 'block';
-        };
-
-
-        reader.readAsDataURL(file);
+        return;
     }
-
 
 
     /*
     |--------------------------------------------------------------------------
-    | SHOW LARGE IMAGE
+    | Maximum 10 MB
     |--------------------------------------------------------------------------
     */
 
-    function showImage(imageUrl)
-    {
-        document.getElementById('largeBlogImage').src =
-            imageUrl;
+    if (file.size > 10 * 1024 * 1024) {
 
-        $('#imageViewModal').modal('show');
+        alert(
+            'Image size must be 10 MB or less.'
+        );
+
+
+        event.target.value = '';
+
+
+        container.style.display = 'none';
+
+
+        return;
     }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Preview
+    |--------------------------------------------------------------------------
+    */
+
+    const reader = new FileReader();
+
+
+    reader.onload = function(e)
+    {
+
+        document.getElementById(
+            'addImagePreview'
+        ).src = e.target.result;
+
+
+        container.style.display = 'block';
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| EDIT IMAGE PREVIEW
+|--------------------------------------------------------------------------
+*/
+
+function previewEditImage(event, blogId)
+{
+
+    const file =
+        event.target.files[0];
+
+
+    const container =
+        document.getElementById(
+            'editImagePreviewContainer' + blogId
+        );
+
+
+    const preview =
+        document.getElementById(
+            'editImagePreview' + blogId
+        );
+
+
+    if (!file) {
+
+        container.style.display = 'none';
+
+        return;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Allowed File Types
+    |--------------------------------------------------------------------------
+    */
+
+    const allowedTypes = [
+
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/webp'
+
+    ];
+
+
+    if (!allowedTypes.includes(file.type)) {
+
+        alert(
+            'Please select a JPG, JPEG, PNG or WEBP image.'
+        );
+
+
+        event.target.value = '';
+
+
+        container.style.display = 'none';
+
+
+        return;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Maximum 10 MB
+    |--------------------------------------------------------------------------
+    */
+
+    if (file.size > 10 * 1024 * 1024) {
+
+        alert(
+            'Image size must be 10 MB or less.'
+        );
+
+
+        event.target.value = '';
+
+
+        container.style.display = 'none';
+
+
+        return;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Preview
+    |--------------------------------------------------------------------------
+    */
+
+    const reader = new FileReader();
+
+
+    reader.onload = function(e)
+    {
+
+        preview.src = e.target.result;
+
+
+        container.style.display = 'block';
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| SHOW LARGE IMAGE
+|--------------------------------------------------------------------------
+*/
+
+function showImage(imageUrl)
+{
+
+    document.getElementById(
+        'largeBlogImage'
+    ).src = imageUrl;
+
+
+    $('#imageViewModal').modal('show');
+
+}
 
 </script>
 
