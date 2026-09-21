@@ -1,73 +1,53 @@
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="{{url('/')}}" class="footer-logo">
-            <img src="{{asset('public/assets/logo.png')}}" alt="Pouch Gallery" class="footer-logo-img" />
-            <span>POUCH GALLERY<sup>®</sup></span>
-          </a>
-          <p>Your one-stop shop for premium gaming peripherals, bags, and tech accessories. Trusted by 50,000+ customers across India.</p>
-          <div class="social-links">
-            <a href="{{$app_profile->insta_link}}" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-            <a href="{{$app_profile->facebook_link}}" target="_blank" aria-label="Facebook"><i class="ri-facebook-line"></i></a>
-            <a href="{{$app_profile->youtube_link}}" target="_blank" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
-            <a href="{{$app_profile->twitter_link}}" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
-          </div>
+<footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h2>Wordsmith<span>ABC</span></h2>
+                <p>MARKETING THAT MATTERS</p>
+                <p class="desc">We help brands grow, connect and lead through creative strategies and result-driven marketing solutions.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#why-us">Why Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html#digital-strategy">Digital Marketing</a></li>
+                    <li><a href="services.html#branding">Branding</a></li>
+                    <li><a href="services.html#content-creation">Content Creation</a></li>
+                    <li><a href="services.html#social-media">Social Media Management</a></li>
+                    <li><a href="services.html#seo-services">SEO &amp; Analytics</a></li>
+                    <li><a href="services.html#web-design">Web Design</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-phone-alt"></i> +91 123 456 7890</li>
+                    <li><i class="fas fa-envelope"></i> hello@wordsmithabc.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Kochi, Kerala, India</li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4>All Categories</h4>
-          @foreach($catlimit as $fcat)
-          <a href="{{url('gaming-products/'.$fcat->id)}}">{{$fcat->category_name}}</a>
-          @endforeach
-          
+        <div class="container footer-bottom">
+            <p>&copy; 2025 WordsmithABC. All Rights Reserved.</p>
         </div>
-        <div class="footer-col">
-          <h4>Gaming</h4>
-        
-          <a href="{{url('')}}">Track Order</a>
-           <a href="{{url('aboutus')}}">About Us</a>
-          <a href="{{url('privacy')}}">Privacy Policy</a>
-          <a href="{{url('term-conditions')}}">Terms & Conditions</a>
-          <a href="{{url('refund')}}">Refund Policy</a>
-          <a href="{{url('cancellation')}}">Cancellation Policy</a>
-         
-          <a href="{{url('contactus')}}">Contact Support</a>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <div class="footer-contact">
-            <i class="ri-map-pin-line"></i>
-            <span>{{$app_profile->address}}</span>
-          </div>
-          <div class="footer-contact">
-            <i class="ri-phone-line"></i>
-            <span>{{$app_profile->phone_number}}</span>
-          </div>
-          <div class="footer-contact">
-            <i class="ri-mail-line"></i>
-            <span>{{$app_profile->email}}</span>
-          </div>
-          <!-- <div class="footer-contact">
-            <i class="ri-time-line"></i>
-            <span>Mon–Sat: 9 AM – 7 PM</span>
-          </div> -->
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Pouch Gallery®. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="https://routeqinnovations.com/" target="_blank">Designed & Developed By Routeq Innovations Pvt Ltd</a>
-         
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <div class="toast" id="cartToast">
-    <i class="ri-shopping-cart-line"></i>
-    <span id="toastMsg">Added to cart!</span>
-  </div>
-
-  <button class="back-top" id="backTop" aria-label="Back to top">
-    <i class="ri-arrow-up-line"></i>
-  </button>
+    </footer>

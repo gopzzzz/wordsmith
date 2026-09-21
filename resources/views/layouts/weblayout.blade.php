@@ -3,11 +3,8 @@
 
 @include('layouts.webpartials.head')
 
-<body>
-
-    <div id="header-wrap">
-        @include('layouts.webpartials.header')
-    </div>
+<body class="inner-page about-page">
+@include('layouts.webpartials.header')
 
     @yield('content')
 

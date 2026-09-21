@@ -10,6 +10,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\WebController;
 
 
 
@@ -19,9 +20,14 @@ use App\Http\Controllers\BlogController;
  
 use App\Http\Controllers\PageEditController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WebController::class, 'index']);
+
+ Route::get('/index', [WebController::class, 'index'])->name('index');
+  Route::get('/aboutus', [WebController::class, 'aboutus'])->name('aboutus');
+  Route::get('/ourservices', [WebController::class, 'ourservices'])->name('ourservices');
+  Route::get('/ourblogs', [WebController::class, 'ourblogs'])->name('ourblogs');
+   Route::get('/blogdetails', [WebController::class, 'blogdetails'])->name('blogdetails');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
