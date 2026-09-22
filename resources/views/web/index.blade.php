@@ -74,8 +74,9 @@
     <div class="container about-content">
 
         <div class="about-image fade-in">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-                 alt="Modern Office">
+
+            <img src="{{ asset($homepage->about_image) }}"
+                 alt="About Us">
 
             <div class="about-overlay-text">
                 <h4>
@@ -84,8 +85,8 @@
                     <span class="text-accent">Impact</span>
                 </h4>
             </div>
-        </div>
 
+        </div>
 
         <div class="about-text fade-in">
 
@@ -94,16 +95,7 @@
             </h3>
 
             <p>
-                At WordsmithABC, we're more than a marketing agency -
-                we're your growth partners. We blend creativity, strategy,
-                and data to build powerful brand identities and drive
-                measurable results.
-            </p>
-
-            <p>
-                From startups to established brands, we help businesses
-                stand out, connect with the right audience, and achieve
-                sustainable growth.
+                {{ $homepage->aboutdescription }}
             </p>
 
         </div>
@@ -111,6 +103,8 @@
     </div>
 </section>
 
+
+<!-- ================= SERVICES ================= -->
 
 <!-- ================= SERVICES ================= -->
 
@@ -123,108 +117,26 @@
 
         <div class="services-grid">
 
-            <div class="service-card fade-in"
-                 style="transition-delay: 0.1s;">
+            @foreach($services as $service)
 
-                <div class="icon">
-                    <i class="fas fa-bullhorn"></i>
+                <div class="service-card fade-in">
+
+                    <div class="icon">
+                        <i class="{{ $service->icon }}"></i>
+                    </div>
+
+                    <h4>{{ $service->name }}</h4>
+
+                    <p>
+                        {{ $service->description }}
+                    </p>
+
                 </div>
 
-                <h4>Digital Marketing</h4>
-
-                <p>
-                    Data-driven strategies to boost your online presence
-                    and reach the right audience.
-                </p>
-
-            </div>
-
-
-            <div class="service-card fade-in"
-                 style="transition-delay: 0.2s;">
-
-                <div class="icon">
-                    <i class="fas fa-pen-nib"></i>
-                </div>
-
-                <h4>Branding</h4>
-
-                <p>
-                    Build a strong, unique brand identity that creates
-                    lasting impressions.
-                </p>
-
-            </div>
-
-
-            <div class="service-card fade-in"
-                 style="transition-delay: 0.3s;">
-
-                <div class="icon">
-                    <i class="fas fa-file-alt"></i>
-                </div>
-
-                <h4>Content Creation</h4>
-
-                <p>
-                    Engaging content that tells your story and connects
-                    with your audience.
-                </p>
-
-            </div>
-
-
-            <div class="service-card fade-in"
-                 style="transition-delay: 0.4s;">
-
-                <div class="icon">
-                    <i class="fas fa-vector-square"></i>
-                </div>
-
-                <h4>Graphic Design</h4>
-
-                <p>
-                    Creative designs that communicate your brand's
-                    message visually.
-                </p>
-
-            </div>
-
-
-            <div class="service-card fade-in"
-                 style="transition-delay: 0.5s;">
-
-                <div class="icon">
-                    <i class="fas fa-chart-pie"></i>
-                </div>
-
-                <h4>Social Media Management</h4>
-
-                <p>
-                    Strategic social media management to grow engagement
-                    and brand loyalty.
-                </p>
-
-            </div>
-
-
-            <div class="service-card fade-in"
-                 style="transition-delay: 0.6s;">
-
-                <div class="icon">
-                    <i class="fas fa-search-dollar"></i>
-                </div>
-
-                <h4>SEO & Analytics</h4>
-
-                <p>
-                    Improve rankings, drive traffic and measure
-                    performance that matters.
-                </p>
-
-            </div>
+            @endforeach
 
         </div>
+
     </div>
 </section>
 
@@ -468,6 +380,8 @@
 
 <!-- ================= TESTIMONIALS ================= -->
 
+<!-- ================= TESTIMONIALS ================= -->
+
 <section class="testimonials" id="testimonials">
 
     <div class="container">
@@ -476,99 +390,38 @@
             What Our <span class="text-accent">Clients</span> Say
         </h3>
 
-
         <div class="test-grid">
 
-            <div class="test-card fade-in"
-                 style="transition-delay: 0.1s;">
+            @foreach($testimonials as $testimonial)
 
-                <i class="fas fa-quote-left test-quote text-accent"></i>
+                <div class="test-card fade-in">
 
-                <p class="review">
-                    WordsmithABC transformed our brand presence.
-                    Their strategies are creative, result-driven
-                    and truly impactful.
-                </p>
+                    <i class="fas fa-quote-left test-quote text-accent"></i>
 
-                <div class="client-info">
+                    <p class="review">
+                        {{ $testimonial->description }}
+                    </p>
 
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg"
-                         alt="Anjaly Nair">
+                    <div class="client-info">
 
-                    <div>
+                        <img src="{{ asset($testimonial->image) }}"
+                             alt="{{ $testimonial->name }}">
 
-                        <h4>Anjaly Nair</h4>
+                        <div>
 
-                        <span>
-                            Founder, Aqua Pure
-                        </span>
+                            <h4>{{ $testimonial->name }}</h4>
 
-                    </div>
+                            <span>
+                                {{ $testimonial->occupations }}
+                            </span>
 
-                </div>
-
-            </div>
-
-
-            <div class="test-card fade-in"
-                 style="transition-delay: 0.2s;">
-
-                <i class="fas fa-quote-left test-quote text-accent"></i>
-
-                <p class="review">
-                    Professional, responsive and result-oriented team.
-                    We saw real growth in our business within just
-                    a few months.
-                </p>
-
-                <div class="client-info">
-
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg"
-                         alt="Rohit Menon">
-
-                    <div>
-
-                        <h4>Rohit Menon</h4>
-
-                        <span>
-                            CEO, BuildIt Solutions
-                        </span>
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
-
-
-            <div class="test-card fade-in"
-                 style="transition-delay: 0.3s;">
-
-                <i class="fas fa-quote-left test-quote text-accent"></i>
-
-                <p class="review">
-                    Their creativity and attention to detail set them apart.
-                    Highly recommended for any growing business.
-                </p>
-
-                <div class="client-info">
-
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg"
-                         alt="Sneha Raj">
-
-                    <div>
-
-                        <h4>Sneha Raj</h4>
-
-                        <span>
-                            Marketing Head, Urban Trends
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
+            @endforeach
 
         </div>
 
