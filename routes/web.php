@@ -152,6 +152,8 @@ Route::post('/services/update/{id}', [ServiceController::class, 'update'])
 Route::get('/services/delete/{id}', [ServiceController::class, 'destroy'])
     ->name('services.delete');
 
+Route::get('/services.html', [WebController::class, 'ourservices'])
+    ->name('ourservices');
 
 Route::get('/blogs', [BlogController::class, 'index'])
     ->name('blogs.index');
@@ -163,4 +165,17 @@ Route::put('/blogs/{id}', [BlogController::class, 'update'])
     ->name('blogs.update');
 
 
+
+
+Route::get('/blog.html', [WebController::class, 'ourblogs'])
+    ->name('ourblogs');
+
+    
+
+Route::get('/about.html', [WebController::class, 'aboutus'])
+    ->name('aboutus');
+
+
+
+    
 require __DIR__.'/auth.php';
