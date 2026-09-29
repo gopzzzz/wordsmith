@@ -109,4 +109,19 @@ class WebController extends Controller
 
         return view('web.blogdetails', compact('blogs'));
     }
+    
+    public function portfolio()
+{
+    $portfolios = DB::table('portfolios')
+        ->orderBy('id', 'desc')
+        ->get();
+
+    return view('web.portfolio', compact('portfolios'));
 }
+
+
+}
+
+
+
+

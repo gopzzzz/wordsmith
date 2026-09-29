@@ -175,6 +175,8 @@ Route::get('/blog.html', [WebController::class, 'ourblogs'])
 Route::get('/about.html', [WebController::class, 'aboutus'])
     ->name('aboutus');
 
+Route::get('/portfolio.html', [WebController::class, 'portfolio'])
+    ->name('portfolio');
 
 
     
