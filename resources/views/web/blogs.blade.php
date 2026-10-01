@@ -150,16 +150,9 @@
                                 {{ $blog->description }}
                             </p>
 
-                            <a class="read-more"
-                               href="{{ route('blogdetails') }}">
-
-                                Read the article
-
-                                <i class="fa-solid fa-arrow-right"
-                                   aria-hidden="true"></i>
-
-                            </a>
-
+                            <a href="{{ route('blogdetails', $blog->id) }}">
+    Read the article →
+</a>
                         </div>
 
                     </article>

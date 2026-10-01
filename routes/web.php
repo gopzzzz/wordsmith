@@ -179,5 +179,10 @@ Route::get('/portfolio.html', [WebController::class, 'portfolio'])
     ->name('portfolio');
 
 
+Route::get('/blogdetails', [WebController::class, 'blogdetails'])
+    ->name('blogdetails');
+
+
+    
     
 require __DIR__.'/auth.php';

@@ -100,15 +100,14 @@ class WebController extends Controller
     // =========================
     // BLOG DETAILS PAGE
     // =========================
+public function blogdetails()
+{
+    $blogs = DB::table('blogs')
+        ->orderBy('id', 'asc')
+        ->get();
 
-    public function blogdetails()
-    {
-        $blogs = DB::table('blogs')
-            ->orderBy('id', 'desc')
-            ->get();
-
-        return view('web.blogdetails', compact('blogs'));
-    }
+    return view('web.blogdetails', compact('blogs'));
+}
     
     public function portfolio()
 {
