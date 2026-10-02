@@ -32,7 +32,7 @@
 
             <div class="container article-cover-wrap fade-in">
                 <figure class="article-cover">
-                   <img src="{{ asset('uploads/blogs/1790665328_portfolio_1.jpg') }}"
+                   <img src="{{ asset('uploads/1789987349_portfolio_1.jpg') }}"
      alt="Blog Image"
      class="blog-detail-image">
                     <figcaption>Every strong voice begins with a clear understanding of the brand behind it.</figcaption>
