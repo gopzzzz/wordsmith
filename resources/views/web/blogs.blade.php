@@ -149,9 +149,8 @@
                             <p>
                                 {{ $blog->description }}
                             </p>
-
-                            <a href="{{ route('blogdetails', $blog->id) }}">
-    Read the article →
+                        <a href="{{ route('blogdetails', $blog->id) }}" class="read-article">
+    Read the article <span>→</span>
 </a>
                         </div>
 

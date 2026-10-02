@@ -1855,3 +1855,38 @@
         transition: none;
     }
 }
+.read-article {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    padding-bottom: 8px;
+
+    color: #102a56;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.read-article::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 105px;
+    height: 2px;
+    background: #f5b800;
+}
+
+
+
+.read-article span {
+    color: #f5b800;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.read-article:hover {
+    color: #102a56;
+    text-decoration: none;
+}

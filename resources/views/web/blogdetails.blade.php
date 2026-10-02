@@ -44,7 +44,7 @@
                     <div class="rail-block table-of-contents">
                         <span class="rail-title">In this article</span>
                         <ol>
-                          <ul>
+                        <ol>
     @foreach($blogs as $blog)
         <li>
             <a href="#blog-{{ $blog->id }}">
@@ -52,7 +52,7 @@
             </a>
         </li>
     @endforeach
-</ul>
+</ol>
                         </ol>
                     </div>
                     <div class="rail-block rail-share">
